@@ -239,7 +239,7 @@ class Trainer:
                         avg_lasso_loss += regularizer.loss
 
                 if self.callbacks:
-                    self.callbacks.on_batch_end()
+                    self.callbacks.on_batch_end(epoch, idx, loss)
 
             if isinstance(scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
                 scheduler.step(train_err)
